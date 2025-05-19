@@ -1,0 +1,74 @@
+.site-hero {
+    position: relative;
+    height: 100vh;
+    background-image: url('../images/hero-bg.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-color 0.4s ease;
+}
+
+.site-hero.bg-visible .nav-links a {
+    color: #000;
+}
+
+.site-hero.bg-visible .navbar {
+    background-color: #fff;
+    box-shadow: 0 10px 10px #fff;
+}
+
+/* Logo starts centered */
+#logo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    max-width: 100%;
+    z-index: 1000;
+}
+
+/* Logo moves up and shrinks on scroll */
+
+
+/* Navbar stays on top */
+.navbar {
+    background: transparent;
+    z-index: 999;
+    width: 100%;
+    padding: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 0 10px;
+}
+
+.site-works .container {
+    column-count: 4;
+    column-gap: 10px;
+}
+
+.site-works img {
+    max-width: 100%;
+    display: block;
+}
+
+.site-works figure {
+    margin: 0;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    margin-bottom: 10px;
+    break-inside: avoid;
+}
+
+.site-works figure>img {
+    grid-row: 1 / -1;
+    grid-column: 1;
+}
+
+.site-works figure a {
+    color: black;
+    text-decoration: none;
+}
