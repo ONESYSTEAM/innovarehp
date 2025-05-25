@@ -13,7 +13,16 @@
     color: #000;
 }
 
+.site-hero-custom.bg-visible .nav-links a {
+    color: #000;
+}
+
 .site-hero.bg-visible .navbar {
+    background-color: #fff;
+    box-shadow: 0 10px 10px #fff;
+}
+
+.site-hero-custom.bg-visible .navbar {
     background-color: #fff;
     box-shadow: 0 10px 10px #fff;
 }
@@ -25,6 +34,15 @@
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
     max-width: 100%;
+    z-index: 1000;
+}
+
+#logo-custom {
+    position: fixed;
+    top: 35px;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(.4);
+    transition: all 0.3s ease;
     z-index: 1000;
 }
 
@@ -40,7 +58,7 @@
 }
 
 .nav-links a {
-    color: white;
+    color: #fff;
     text-decoration: none;
     padding: 0 10px;
 }
@@ -69,6 +87,6 @@
 }
 
 .site-works figure a {
-    color: black;
+    color: #000;
     text-decoration: none;
 }

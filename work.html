@@ -9,10 +9,18 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
+<style>
+    .nav-links a {
+        color: #000;
+        text-decoration: none;
+        padding: 0 10px;
+    }
+</style>
+
 <body>
     <main>
         <!-- Site Hero Start -->
-       <div class="site-hero d-sm-block d-none">
+       <div class="site-hero-custom d-sm-block d-none">
             <nav class="navbar fixed-top d-flex justify-content-center">
                 <div class="container d-flex justify-content-between align-items-center">
                     <div class="nav-links d-flex gap-3">
@@ -26,7 +34,7 @@
                     </div>
                 </div>
             </nav>
-            <img id="logo" src="images/logo-light.png" class="img-fluid" alt="Logo">
+            <img id="logo-custom" src="images/logo-dark.png" class="img-fluid" alt="Logo">
         </div>
 
         <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary d-sm-none d-block">
@@ -44,7 +52,7 @@
                             <a class="nav-link" href="about.html">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="team.html">Team</a>
+                            <a class="nav-link" href="#">Team</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Careers</a>
@@ -56,21 +64,11 @@
                 </div>
             </div>
         </nav>
-
-        <img src="images/hero-bg-mobile.jpg" class="img-fluid d-sm-none d-block" alt="Hero">
         <!-- Site Hero End -->
 
-        <!-- Site Banner Start -->
-        <div class="site-banner bg-dark p-5">
-            <div class="container">
-                <h1 class="display-4 text-light">Healthcare marketing has transformed with increased patient choice and autonomy. In response, providers now use creative, multi-platform strategies and community-focused campaigns. The need for fresh, innovative approaches is growing, and we are at the forefront driving high-impact outreach.</h1>
-            </div>
-        </div>
-        <!-- Site Banner End -->
-
-        <!-- Site Works Start -->
+         <!-- Site Works Start -->
         <div class="site-works p-5">
-            <div class="container">
+            <div class="container pt-sm-5 pt-0">
                 <figure>
                     <img src="./images/works/w1.jpg" alt="Works" />
                 </figure>
@@ -105,9 +103,9 @@
                 <div class="d-md-flex d-block align-items-center justify-content-between">
                     <div><a href="" class="text-decoration-none text-dark">Privacy Policy</a></div>
                     <div>
-                        <a href="work.html" class="text-decoration-none text-dark me-3">Work</a>
+                        <a href="" class="text-decoration-none text-dark me-3">Work</a>
                         <a href="about.html" class="text-decoration-none text-dark me-3">About</a>
-                        <a href="team.html" class="text-decoration-none text-dark me-3">Team</a>
+                        <a href="" class="text-decoration-none text-dark me-3">Team</a>
                         <a href="" class="text-decoration-none text-dark me-3">Careers</a>
                         <a href="" class="text-decoration-none text-dark">Dashboard</a>
                     </div>
@@ -120,43 +118,22 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     <script>
-        window.addEventListener("scroll", function () {
-            const logo = document.getElementById("logo");
-            const scrollY = window.scrollY;
+        document.addEventListener("DOMContentLoaded", function () {
+            window.addEventListener('scroll', function () {
+                const logo = document.getElementById("logo-custom");
+                const siteHero = document.querySelector('.site-hero-custom');
+                const scrollY = window.scrollY;
+                const maxScroll = 300;
+                const clampedScroll = Math.min(scrollY, maxScroll);
+                const topPercent = 50 - (clampedScroll / maxScroll) * 45;
 
-            const maxScroll = 300;
-            const clampedScroll = Math.min(scrollY, maxScroll);
-
-            // Calculate new top position and scale
-            const topPercent = 50 - (clampedScroll / maxScroll) * 45;
-            const scale = 1 - (clampedScroll / maxScroll) * 0.6;
-
-            // Apply movement and scale
-            logo.style.top = `${topPercent}%`;
-            logo.style.transform = `translate(-50%, -50%) scale(${scale})`;
-
-            // Change logo when it reaches the top (you can also toggle a class here)
-            if (topPercent <= 5) {
-                logo.src = "images/logo-dark.png"; // new logo when at top
-            } else {
-                logo.src = "images/logo-light.png"; // original logo
-            }
+                if (scrollY > 100) {
+                    siteHero.classList.add('bg-visible');
+                } else {
+                    siteHero.classList.remove('bg-visible');
+                }
+            });
         });
-
-        window.addEventListener('scroll', function () {
-            const logo = document.getElementById('logo');
-            const siteHero = document.querySelector('.site-hero');
-
-            const logoTop = logo.getBoundingClientRect().top;
-
-            // Adjust this threshold to control when the background appears (e.g., when logo is ~10px from top)
-            if (logoTop <= 15) {
-                siteHero.classList.add('bg-visible');
-            } else {
-                siteHero.classList.remove('bg-visible');
-            }
-        });
-
     </script>
 
 </body>
